@@ -6,7 +6,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;encrypt=true;databaseName=JoinTestDB;integratedSecurity=true;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1433;encrypt=true;databaseName=Eticaret;trustServerCertificate=true;
+    username: yenimuhammet
+    password: Aa123456*
   jpa:
     hibernate:
       ddl-auto: update  #create-drop, create

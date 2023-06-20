@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "tblpersonel", schema = "public")
+@Table(name = "tblpersonel")
 public class Personel  {
     //    // otomatik artan bir syı dizisi oluşturur.
 //    @SequenceGenerator(name="sq_tblpersonel_id",sequenceName = "sq_tblpersonel_id",

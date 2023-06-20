@@ -36,4 +36,6 @@
     POST: Veri kaydetmek için kullanılır. Veri göndermek için kullanılır.
     verilerimiz isteğin body sinde iletilir. daha güvenlidir. 
 
-    
+### JPA Repository Link
+    https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+

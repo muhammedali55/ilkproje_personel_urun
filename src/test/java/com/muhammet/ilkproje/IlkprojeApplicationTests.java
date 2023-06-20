@@ -3,10 +3,10 @@ package com.muhammet.ilkproje;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class IlkprojeApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

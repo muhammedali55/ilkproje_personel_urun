@@ -1,31 +1,40 @@
 package com.muhammet.ilkproje.controller;
 
+import com.muhammet.ilkproje.constants.RestApis;
+import com.muhammet.ilkproje.dto.request.PersonelSaveRequestDto;
 import com.muhammet.ilkproje.repository.entity.Personel;
 import com.muhammet.ilkproje.service.PersonelService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import static com.muhammet.ilkproje.constants.RestApis.*;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/personel")
+@RequestMapping(PERSONEL)
 public class PersonelController {
     private final PersonelService personelService;
+
+    @Value("${myapplication.kafanizagoreyazabilirsiniz}")
+    private String deger;
+
+//    @Value("${myapplication.list}")
+//    // Örnek Ayarlayalım
+//    private Map<String,String> list;
 
     /**
      * http://localhost:9090/personel/save?ad=muhammet
      * @param ad
      * @return
      */
-    @GetMapping("/save")
-    public ResponseEntity<Void> save(String ad){
-        personelService.save(Personel.builder()
-                        .ad(ad)
-                .build());
+    @PostMapping(SAVE)
+    public ResponseEntity<Void> save(@RequestBody @Valid PersonelSaveRequestDto dto){
+       personelService.save(dto);
         return ResponseEntity.ok().build();
     }
 
@@ -33,8 +42,18 @@ public class PersonelController {
      * http://localhost:9090/personel/findAll
      * @return
      */
-    @GetMapping("/findAll")
+    @GetMapping(FINDALL)
     public ResponseEntity<List<Personel>> findAll(){
         return ResponseEntity.ok(personelService.findAll());
     }
+
+    @GetMapping("/getvalue")
+    public String getapplicationValue(){
+        return deger;
+    }
+//
+//    @GetMapping("/getlist")
+//    public Map<String,String> getapplicationList(){
+//        return list;
+//    }
 }

@@ -1,18 +1,20 @@
 package com.muhammet.ilkproje.repository.entity;
 
+import com.muhammet.ilkproje.utility.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "urun")
-public class Urun {
+public class Urun extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -21,7 +23,5 @@ public class Urun {
     Double fiyat;
     Integer stok;
     String url;
-    Long createat;
-    Long updateat;
-    int state;
+
 }

@@ -67,8 +67,10 @@ public interface IPersonelRepository extends JpaRepository<Personel,Long> {
      * Top  - Limit  -> "Top" tek kayıt getirir.
      * "Top5" -> 5 kayıt getirir.
      * En son eklenmiş olan 3 kişiyi getir.
+     * TODO: Buna bakalım hata fırlatıyor.
      */
-    List<Personel> findTop3ByOrderByCreateatDesc();
+
+     List<Personel> findTop3ByOrderByCreateatDesc();
 
     /**
      * select * from tblpersonel where id in (3,543,544,34,5)
@@ -80,7 +82,7 @@ public interface IPersonelRepository extends JpaRepository<Personel,Long> {
      */
     List<Personel> findAllByIdIn(List<Long> ids);
 
-    List<Personel> findAllByCreateatBetween(Long start, Long end);
+   List<Personel> findAllByCreateatBetween(Long start, Long end);
 
     /**
      * LessThan -> tarih<01.01.2023

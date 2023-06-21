@@ -4,6 +4,12 @@
 server:
   port: ${EGITIM_PORT}
 
+logging:
+  file:
+    name: egitim.log
+  level:
+    root: debug
+
 spring:
   datasource:
     url: jdbc:sqlserver://localhost:1433;encrypt=true;databaseName=Eticaret;trustServerCertificate=true;

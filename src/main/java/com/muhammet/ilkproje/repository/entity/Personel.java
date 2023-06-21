@@ -1,10 +1,12 @@
 package com.muhammet.ilkproje.repository.entity;
 
+import com.muhammet.ilkproje.utility.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 /**
  * Lombok anotasyonları, Getter,Setter, Constructor, Builder gibi kodları otomatik olarak oluşturur.
@@ -17,10 +19,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "tblpersonel")
-public class Personel  {
+public class Personel extends BaseEntity {
     //    // otomatik artan bir syı dizisi oluşturur.
 //    @SequenceGenerator(name="sq_tblpersonel_id",sequenceName = "sq_tblpersonel_id",
 //    initialValue = 1000,allocationSize = 5)
@@ -42,8 +44,6 @@ public class Personel  {
     @Column(length = 500)
     String adres;
     String telefon;
-    Long createat;
-    Long updateat;
-    int state;
+
 
 }

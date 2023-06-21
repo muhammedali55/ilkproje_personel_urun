@@ -2,6 +2,8 @@ package com.muhammet.ilkproje.controller;
 
 import com.muhammet.ilkproje.constants.RestApis;
 import com.muhammet.ilkproje.dto.request.PersonelSaveRequestDto;
+import com.muhammet.ilkproje.exceptions.ErrorType;
+import com.muhammet.ilkproje.exceptions.IlkprojeException;
 import com.muhammet.ilkproje.repository.entity.Personel;
 import com.muhammet.ilkproje.repository.view.VwPersonel;
 import com.muhammet.ilkproje.service.PersonelService;
@@ -30,7 +32,7 @@ public class PersonelController {
 
     /**
      * http://localhost:9090/personel/save?ad=muhammet
-     * @param ad
+     *
      * @return
      */
     @PostMapping(SAVE)
@@ -71,5 +73,12 @@ public class PersonelController {
     @GetMapping("/getviewpersonel")
     public ResponseEntity<List<VwPersonel>>findAllVwpersonel(){
         return ResponseEntity.ok(personelService.findAllVwpersonel());
+    }
+
+    @GetMapping("/hatafirlat")
+    public ResponseEntity<String> hataFirlat(boolean isHata){
+        if (isHata)
+            throw new IlkprojeException(ErrorType.PERSONEL_BULUNAMADI);
+       throw new RuntimeException("Runtime Exception");
     }
 }

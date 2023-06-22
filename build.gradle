@@ -4,8 +4,10 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
+apply from: "${rootDir}/dependencies.gradle"
+
 group = 'com.muhammet'
-version = '0.0.1-SNAPSHOT'
+version = 'v.0.1'
 
 java {
 	sourceCompatibility = '17'
@@ -22,13 +24,18 @@ repositories {
 }
 
 dependencies {
-	implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '8.0.0.Final'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '3.1.0'
+
+	implementation libs.hibernateValidator
+	implementation libs.springWeb
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	implementation libs.mapstruct
+	annotationProcessor libs.mapstructProcessor
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+
 	implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '11.2.3.jre17'
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

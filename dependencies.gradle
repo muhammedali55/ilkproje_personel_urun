@@ -1,0 +1,20 @@
+/**
+ * burada Json onject gibi kullanacağız
+ */
+ext{
+    versions= [
+            springBoot          : "3.1.0",
+            mapstruct           : "1.5.5.Final",
+            hibernateValidator  : "8.0.0.Final"
+    ]
+
+    libs= [
+
+            springWeb           : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+            mapstruct           : "org.mapstruct:mapstruct:${versions.mapstruct}",
+            mapstructProcessor  : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
+            hibernateValidator  : "org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}"
+
+    ]
+
+}

@@ -8,7 +8,21 @@ logging:
   file:
     name: egitim.log
   level:
-    root: debug
+#    root: debug  -> Tüm uygulamanızın kök dizinidir. içine framework te dahil olmak üzere her paketi logg lar
+    com.muhammet.ilkproje: debug
+#    com.muhammet.ilkproje.service: debug
+#    org.hibernate: debug
+#    org.springframework.boot: debug
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
 
 spring:
   datasource:

@@ -39,3 +39,19 @@
 ### JPA Repository Link
     https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 
+## DEPLOY İŞLEMLERİ
+
+### 1- Build Alma ve İmaj Oluşturma İşlemleri
+
+    * Öncelikle ortamda bir Docker Desktop Servis olmalı, kurulum yapmış olmalısınız.
+    * Gradle -> build çalıştırılır
+    * Gradle -> buildDependents
+    ** buraya kadar olan işlem sizin için yeterlidir. uygulamanını JAR file ı çıkıştır. bu dosya ya 
+    build->libs-> [projeadi.version].jar şekline ulaşırsınız.
+    * Projenizin root dizinine Dockerfile ı ekleyiniz.
+    * Docker build ile yeni imaj oluşturuyoruz.
+    * docker build  -t ilkuygulama:v.0.0.1 .   ile docker imaj oluşturuyouz.
+    * docker run -p 8090:8090 ilkuygulama:v.0.0.1  imajı çalıştırıyoruz.
+
+### 2- Native-Imaj ile GraalVM imaj oluşturma
+    * ./gradlew :bootBuildImage --imageName=ilkuygulama:v.0.1_graal

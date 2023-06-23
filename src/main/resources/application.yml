@@ -2,11 +2,38 @@
 # key: dan sonra değeri bitişik yazmak hatadır
 # alt kırılım şeklindeki özellik aynı hizada yazılırsa htadır
 server:
-  port: 9090
+  port: 8090
+
+logging:
+  file:
+    name: egitim.log
+  level:
+    #    root: debug  -> Tüm uygulamanızın kök dizinidir. içine framework te dahil olmak üzere her paketi logg lar
+    com.muhammet.ilkproje: debug
+#    com.muhammet.ilkproje.service: debug
+#    org.hibernate: debug
+#    org.springframework.boot: debug
+
+jwt:
+  secret: 12345 # ${JWT_SECRET_KEY} # bu sistem ortam dğeişkenleriden bilgi çekmek için kullanılır.
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
 
 spring:
+  security:
+    user:
+      name: muhammet
+      password: 12345
   datasource:
-    url: jdbc:sqlserver://localhost:1433;encrypt=true;databaseName=Eticaret;trustServerCertificate=true;
+    url: jdbc:sqlserver://172.20.10.4:1433;encrypt=true;databaseName=Eticaret;trustServerCertificate=true;
     username: yenimuhammet
     password: Aa123456*
   jpa:
@@ -16,3 +43,13 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
+
+myapplication:
+  kafanizagoreyazabilirsiniz: "buraya bir değer girebilirsiniz"
+  list:
+    - name: l1
+      value: "birinci değer"
+    - name: l2
+      value: "ikinci değer"
+    - name: l3
+      value: "üçüncü değer"

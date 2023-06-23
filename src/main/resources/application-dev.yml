@@ -14,6 +14,9 @@ logging:
 #    org.hibernate: debug
 #    org.springframework.boot: debug
 
+jwt:
+  secret: 12345 # ${JWT_SECRET_KEY} # bu sistem ortam dğeişkenleriden bilgi çekmek için kullanılır.
+
 management:
   endpoints:
     jmx:
@@ -25,6 +28,10 @@ management:
         exclude: "env,beans"
 
 spring:
+  security:
+    user:
+      name: muhammet
+      password: 12345
   datasource:
     url: jdbc:sqlserver://localhost:1433;encrypt=true;databaseName=Eticaret;trustServerCertificate=true;
     username: yenimuhammet
